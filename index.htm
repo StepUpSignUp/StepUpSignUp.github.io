@@ -1,16 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
-<script>
-  const scriptURL = '<https://script.google.com/macros/s/AKfycbzlf53tILQ1MgaRGUCqAMpECXo3K6C8cZqX7G3a9CMs1DEpmtY/exec>'
-  const form = document.forms['Untitled spreadsheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+	
 </script>
 <head>
     <meta charset="UTF-8">
@@ -38,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="/action_page.php">
+                <form action="/action_page.php" id="form1">
                     <div class="row">
                         <div class="col-md-5">
                             <label for="add_remove">Do you want to add or remove an employee?</label>
@@ -1931,7 +1921,20 @@
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][training_day_index].toLowerCase() == "enable" ) );
             var id_card_is_required = inputValue == "Add" && !!(site_type_field_checked) && ( ( site_type_field.value=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) );
-            
+            var $form = $('form#form1'),
+    url = 'https://script.google.com/macros/s/AKfycbzlf53tILQ1MgaRGUCqAMpECXo3K6C8cZqX7G3a9CMs1DEpmtY/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
             if(inputValue == "Add")
             {
                 $(".add_form").show();
@@ -2263,7 +2266,7 @@
                     previous_site_field.removeAttribute("required")
                 }
             }
-        });
+        }); 
 
         $("#signup_form").submit(function(){
             document.getElementById('status').style.display = 'inline';
