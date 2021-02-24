@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-		    <form id="signup_form" method="get">
+		    <form id="signup_form">
                     <div class="row">
                         <div class="col-md-5">
                             <label for="add_remove">Do you want to add or remove an employee from Step Up?</label>
@@ -2259,17 +2259,21 @@
                 }
             }
         });
+      var $form = $('form#signup_form'),
+     url = 'https://script.google.com/macros/s/AKfycby4Bcu9gT_ZD3J9_34NMMYpKPOQja8ZhqGZBGSK7s6XzHL6-749GBb_/exec'
 
-        $("#signup_form").submit(function(){
-            document.getElementById('status').style.display = 'inline';
-            $('.modal').modal('show');
-            document.getElementById("submit_selection").setAttribute("disabled","disabled");
-        });
+   $('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+   );
+})
 
-        $('.datepicker').datetimepicker({
-            format: 'd-M-y',
-            timepicker: false
-        });
+
     </script>
 </body>
-</html>
