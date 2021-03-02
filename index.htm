@@ -1910,11 +1910,13 @@
 
             var add_pieface_index = hidden_keys.indexOf("add_pieface");
             var add_petroleum_index = hidden_keys.indexOf("add_petroleum");
+            var add_dealer_index = hidden_keys.indexOf("add_dealer");
 
             var fields_ids = hidden_data[0];
 
             var training_day_index = fields_ids.indexOf("training_day");
             var id_card_index = fields_ids.indexOf("id_card");
+            var photo_id_index = fields_ids.indexOf("photo_id");
 
             var inputValue = $(this).attr("value");
             var add_remove_field = document.querySelector("input[name=add_remove]");
@@ -1946,6 +1948,9 @@
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][training_day_index].toLowerCase() == "enable" ) );
             var id_card_is_required = inputValue == "Add" && !!(site_type_field_checked) && ( ( site_type_field.value=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) );
+            var photo_id_card_is_required = inputValue == "Add" && !!(site_type_field_checked) && ( ( site_type_field.value=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
+                                                                    ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) ||
+                                                                                                  ( site_type_field.value=="Dealer" && hidden_data[add_dealer_index+2][photo_id_index].toLowerCase() == "enable" ));
             
             if(inputValue == "Add")
             {
