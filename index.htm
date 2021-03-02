@@ -3022,6 +3022,25 @@
                 {
                     remove_mobile_number_field.removeAttribute("required")
                 }
+                
+                $(".transfer_form").hide();
+
+                if(transfer_full_name_field.hasAttribute('required'))
+                {
+                    transfer_full_name_field.removeAttribute("required")
+                }
+                if(transfer_previous_site_field.hasAttribute('required'))
+                {
+                    transfer_previous_site_field.removeAttribute("required")
+                }
+                if(transfer_new_site_field.hasAttribute('required'))
+                {
+                    transfer_new_site_field.removeAttribute("required")
+                }
+                if(transfer_position_field.hasAttribute('required'))
+                {
+                    transfer_position_field.removeAttribute("required")
+                }
 
             }
             else{
@@ -3116,6 +3135,24 @@
                     remove_mobile_number_field.setAttribute("required","required");                    
                 }
                 
+                $(".transfer_form").show();
+
+                if(transfer_full_name_field.hasAttribute('required'))
+                {
+                    transfer_full_name_field.setAttribute("required")
+                }
+                if(transfer_previous_site_field.hasAttribute('required'))
+                {
+                    transfer_previous_site_field.setAttribute("required")
+                }
+                if(transfer_new_site_field.hasAttribute('required'))
+                {
+                    transfer_new_site_field.setAttribute("required")
+                }
+                if(transfer_position_field.hasAttribute('required'))
+                {
+                    transfer_position_field.setAttribute("required")
+                }
             }
 
         });
