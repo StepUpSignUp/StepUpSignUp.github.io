@@ -2218,18 +2218,6 @@
                         id_card_field.removeAttribute("required")
                     }
                 }
-                
-                if(photo_id_is_required){
-                    $(".photo_id_col").show();
-                    if(!photo_id_field.hasAttribute('required'))
-                    {
-                        photo_id_field.setAttribute("required","required")
-                    }
-                }else{
-                    $(".photo_id_col").hide();
-                    if(photo_id_field.hasAttribute('required'))
-                    {
-                       photo_id_field.removeAttribute("required")
             }
 
         });
