@@ -19,7 +19,7 @@
 </head>
 <body>
     <input type="hidden" name="hidden_keys" value="[&quot;add_pieface&quot;,&quot;add_petroleum&quot;&quot;add_dealer&quot;]">
-    <input type="hidden" name="hidden_data" value="[[&quot;training_day&quot;,&quot;id_card&quot;],[&quot;Enable&quot;,&quot;Enable&quot;],[&quot;Disable&quot;,&quot;Disable&quot;][&quot;Disable&quot;,&quot;Disable&quot;]">
+    <input type="hidden" name="hidden_data" value="[[&quot;training_day&quot;,&quot;id_card&quot;],[&quot;Enable&quot;,&quot;Enable&quot;],[&quot;Disable&quot;,&quot;Disable&quot;]">
     <div class="container">
         <div class="row"> 
             <div class="col-12">
@@ -1916,7 +1916,6 @@
 
             var training_day_index = fields_ids.indexOf("training_day");
             var id_card_index = fields_ids.indexOf("id_card");
-            var photo_id_index = fields_ids.indexOf("photo_id");
 
             var inputValue = $(this).attr("value");
             var add_remove_field = document.querySelector("input[name=add_remove]");
@@ -1948,9 +1947,6 @@
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][training_day_index].toLowerCase() == "enable" ) );
             var id_card_is_required = inputValue == "Add" && !!(site_type_field_checked) && ( ( site_type_field.value=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
                                                                     ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) );
-            var photo_id_card_is_required = inputValue == "Add" && !!(site_type_field_checked) && ( ( site_type_field.value=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
-                                                                    ( site_type_field.value=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) ||
-                                                                                                  ( site_type_field.value=="Dealer" && hidden_data[add_dealer_index+2][photo_id_index].toLowerCase() == "enable" ));
             
             if(inputValue == "Add")
             {
@@ -2188,9 +2184,7 @@
             var id_card_is_required = add_remove_field.value == "Add" && ( ( inputValue=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
                                                                     ( inputValue=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) ) ||
                                                                        ( inputValue=="Dealer" && hidden_data[add_dealer_index+2][id_card_index].toLowerCase() == "enable" )
-            var photo_id_is_required = add_remove_field.value == "Add" && ( ( inputValue=="United/Pie Face" && hidden_data[add_pieface_index+1][id_card_index].toLowerCase() == "enable" ) ||
-                                                                    ( inputValue=="United Petroleum" && hidden_data[add_petroleum_index+1][id_card_index].toLowerCase() == "enable" ) ) ||
-                                                                       ( inputValue=="Dealer" && hidden_data[add_dealer_index+2][id_card_index].toLowerCase() == "enable" )        
+   
 
             $(".child_add_form").show();
 
